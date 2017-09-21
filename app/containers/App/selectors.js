@@ -25,6 +25,7 @@ export const makeModalSelector = () => createSelector(
   (state) => (state && state.get('modalStack').size > 0) ? {
     node: state.get('modalStack').last(),
     closeHandler: state.get('modalCloseHandlers').last(),
+    backdrop: state.get('modalBackdrop').last(),
   } : null
 );
 
