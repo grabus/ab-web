@@ -8,6 +8,7 @@ describe('appReducer', () => {
     state = fromJS({
       modalStack: [],
       modalCloseHandlers: [],
+      modalBackdrop: [],
       progress: 0,
     });
   });
