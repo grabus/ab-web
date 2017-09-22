@@ -182,7 +182,7 @@ export const AccountNotLocked = ({
       {conf().firstBlockHash === MAIN_NET_GENESIS_BLOCK &&
         <a
           onClick={handleShapeshiftClick}
-          href={shapeShiftLink(account.proxy)}
+          href={shapeShiftLink(ethUtil.toChecksumAddress(account.proxy))}
         >
           <img src={shapeshiftButton} alt="Pay with Shapeshift" />
         </a>
