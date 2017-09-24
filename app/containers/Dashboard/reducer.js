@@ -119,7 +119,6 @@ function dashboardReducer(state = initialState, action) {
       return state
         .withMutations((newState) => {
           if (!action.newAuthState.loggedIn) {
-            console.log('action.newAuthState.loggedIn');
             return newState
               .set('proxy', null)
               .set('failedTx', null)
