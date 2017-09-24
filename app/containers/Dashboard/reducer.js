@@ -116,17 +116,21 @@ function dashboardReducer(state = initialState, action) {
       );
 
     case SET_AUTH:
-      if (!action.newAuthState.loggedIn) {
-        return state
-          .set('proxy', null)
-          .set('failedTx', null)
-          .set('events', null)
-          .set('activeTab', OVERVIEW)
-          .set('amountUnit', ETH)
-          .set('investType', POWERUP)
-          .set('investTour', false);
-      }
-      return state;
+      return state
+        .withMutations((newState) => {
+          if (!action.newAuthState.loggedIn) {
+            console.log('action.newAuthState.loggedIn');
+            return newState
+              .set('proxy', null)
+              .set('failedTx', null)
+              .set('events', null)
+              .set('activeTab', OVERVIEW)
+              .set('amountUnit', ETH)
+              .set('investType', POWERUP)
+              .set('investTour', false);
+          }
+          return state;
+        });
 
     default:
       return state;
