@@ -63,6 +63,13 @@ class TableMenu extends React.Component {
         //   seatStatus === STATUS_MSG.sittingIn ||
         //   seatStatus === STATUS_MSG.standingUp,
       },
+      {
+        name: 'mute',
+        icon: `fa ${isMuted ? 'fa-volume-off' : 'fa-volume-up'}`,
+        title: isMuted ? 'Unmute' : 'Mute',
+        onClick: () => handleClickMuteToggle(!isMuted),
+        disabled: false,
+      },
     ];
     const menuUserOpen = [
       {
@@ -77,13 +84,6 @@ class TableMenu extends React.Component {
         icon: 'fa fa-tachometer',
         title: 'Dashboard',
         to: '/dashboard',
-        disabled: false,
-      },
-      {
-        name: 'mute',
-        icon: `fa ${isMuted ? 'fa-volume-off' : 'fa-volume-up'}`,
-        title: isMuted ? 'Unmute' : 'Mute',
-        onClick: () => handleClickMuteToggle(!isMuted),
         disabled: false,
       },
       {
