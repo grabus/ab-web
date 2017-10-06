@@ -100,15 +100,15 @@ export class RegisterPage extends React.Component { // eslint-disable-line react
               component={FormField}
               label={defaultRefCode ? 'Referral code (optional)' : 'Referral code'}
             />
-            <Field name="captchaResponse" component={Captcha} error={error} />
-            {error && <ErrorMessage error={error} />}
+            <Field name="captchaResponse" component={Captcha} error={error.message} />
+            {error && <ErrorMessage error={error.message} />}
             <Field
               name="terms"
               type="checkbox"
               component={renderCheckBox}
               label={termsLink}
             />
-            <Button type="submit" disabled={submitting || invalid || asyncValidating} size="large">
+            <Button type="submit" disabled={submitting || (invalid && (!error || !error.valid)) || asyncValidating} size="large">
               { (!submitting) ? 'Register' : 'Please wait ...' }
             </Button>
           </Form>
