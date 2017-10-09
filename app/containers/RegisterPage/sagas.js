@@ -31,7 +31,6 @@ export function* registerSaga() {
 
       yield put(push('/confirm'));
     } catch (err) {
-      window.err = err;
       const errors = {};
       if (err.status && err.status === 409) {
         errors.email = 'Email taken.';
