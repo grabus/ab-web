@@ -100,7 +100,7 @@ export class RegisterPage extends React.Component { // eslint-disable-line react
               component={FormField}
               label={defaultRefCode ? 'Referral code (optional)' : 'Referral code'}
             />
-            <Field name="captchaResponse" component={Captcha} error={error.message} />
+            <Field name="captchaResponse" component={Captcha} error={error ? error.message : null} />
             {error && <ErrorMessage error={error.message} />}
             <Field
               name="terms"
