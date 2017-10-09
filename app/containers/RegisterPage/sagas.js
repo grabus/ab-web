@@ -40,6 +40,7 @@ export function* registerSaga() {
       } else {
         errors._error = { message: `Registration failed with error code ${err.message || err}` }; // eslint-disable-line no-underscore-dangle
       }
+      yield put(change('register', 'captchaResponse', false));
       yield put(stopSubmit('register', errors));
     } finally {
       yield put(setProgress(100));
